@@ -55,8 +55,24 @@ The equation (1) can be written as <br>
 5.	Analyse the output in open loop and closed loop.
 
 ## Program
-
+```
+kt=0.0274;
+rf=4;
+lf=2.75e-6;
+j=3.2284e-6;
+b=3.5077e-6;
+s=tf('s');
+ol_sys=kt/((rf+lf*s)*(j*s*s+b*s))
+subplot(2,1,1)
+step(ol_sys)
+title('Open loop response')
+cl_sys=feedback(ol_sys,1)
+subplot(2,1,2)
+step(cl_sys)
+title('Closed loop system')
+```
 ## Output
+<img width="1914" height="927" alt="Screenshot 2025-10-08 091458" src="https://github.com/user-attachments/assets/5d56dde3-af52-424b-bd5b-9d52f255e80b" />
 
 ## Result
 Thus, the position of dc motor is controlled using MATLAB. 
